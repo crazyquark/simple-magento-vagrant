@@ -19,6 +19,7 @@ Vagrant.configure("2") do |config|
   # accessing "localhost:8080" will access port 80 on the guest machine.
   config.vm.network :forwarded_port, guest: 80, host: 8080
   config.vm.synced_folder ".", "/vagrant", :mount_options => ["dmode=777","fmode=666"]
+  config.vm.network :private_network, ip: "192.168.25.15"
 
   config.ssh.forward_agent = true
 
