@@ -11,6 +11,7 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "ubuntu/trusty32"
+  # config.vm.box = "ubuntu/trusty64"
   
   config.vm.provision :shell, :path => "bootstrap.sh", :args => [sample_data]
 
@@ -19,14 +20,16 @@ Vagrant.configure("2") do |config|
   # accessing "localhost:8080" will access port 80 on the guest machine.
   config.vm.network :forwarded_port, guest: 80, host: 8080
   config.vm.synced_folder ".", "/vagrant", :mount_options => ["dmode=777","fmode=666"]
-  config.vm.network :private_network, ip: "192.168.25.15"
+  config.vm.network :private_network, ip: "172.28.128.10"
 
-  config.ssh.forward_agent = true
+  # config.ssh.forward_agent = true
 
   config.vm.provider :virtualbox do |vb|
     vb.customize ["modifyvm", :id, "--memory", "256"]
     vb.customize ["modifyvm", :id, "--hwvirtex", "off"] 
     vb.name = "simple-magento-vagrant"
   end
+  
+  config.vm.boot_timeout = 3600
 
 end
