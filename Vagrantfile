@@ -28,5 +28,7 @@ Vagrant.configure("2") do |config|
     vb.customize ["modifyvm", :id, "--hwvirtex", "off"] 
     vb.name = "simple-magento-vagrant"
   end
+  
+  config.vm.boot_timeout = 3600
 
 end
