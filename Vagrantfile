@@ -24,7 +24,7 @@ Vagrant.configure("2") do |config|
   config.ssh.forward_agent = true
 
   config.vm.provider :virtualbox do |vb|
-    vb.customize ["modifyvm", :id, "--memory", "512"]
+    vb.customize ["modifyvm", :id, "--memory", "256"]
     vb.customize ["modifyvm", :id, "--hwvirtex", "off"] 
     vb.name = "simple-magento-vagrant"
   end
