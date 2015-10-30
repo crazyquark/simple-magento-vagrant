@@ -82,7 +82,7 @@ fi
 
 # Sample Data
 if [[ $SAMPLE_DATA == "true" ]]; then
-  if [[ ! -f "/vagrant/magento-sample-data-${DATA_VERSION}.tar.gz" ]]; then
+  if [[ ! -f "magento-sample-data-${DATA_VERSION}.tar.gz" ]]; then
     # Only download sample data if we need to
     wget http://www.magentocommerce.com/downloads/assets/${DATA_VERSION}/magento-sample-data-${DATA_VERSION}.tar.gz
   fi
@@ -98,7 +98,7 @@ fi
 # Run installer
 if [ ! -f "./httpdocs/app/etc/local.xml" ]; then
   pushd httpdocs
-  sudo /usr/bin/php -f install.php -- --license_agreement_accepted yes \
+  php -f install.php -- --license_agreement_accepted yes \
   --locale en_US --timezone "America/Los_Angeles" --default_currency USD \
   --db_host localhost --db_name magentodb --db_user magentouser --db_pass password \
   --url "http://212.113.64.58:8080/" --use_rewrites yes \
