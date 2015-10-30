@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SAMPLE_DATA=$1
+SAMPLE_DATA="true
 MAGE_VERSION="1.9.1.0"
 DATA_VERSION="1.9.0.0"
 
