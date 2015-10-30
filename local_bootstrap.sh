@@ -68,10 +68,11 @@ mysql -u root -e "FLUSH PRIVILEGES"
 
 # Download and extract
 if [[ ! -f "./httpdocs/index.php" ]]; then
-  pushd ./httpdocs
   wget http://www.magentocommerce.com/downloads/assets/${MAGE_VERSION}/magento-${MAGE_VERSION}.tar.gz
   tar -zxvf magento-${MAGE_VERSION}.tar.gz
-  mv magento/* magento/.htaccess .
+  mv magento httpdocs
+  
+  pushd httpdocs
   chmod -R o+w media var
   chmod o+w app/etc
   # Clean up downloaded file and extracted dir
