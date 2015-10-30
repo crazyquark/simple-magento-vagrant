@@ -71,7 +71,7 @@ if [[ ! -f "./httpdocs/index.php" ]]; then
   wget http://www.magentocommerce.com/downloads/assets/${MAGE_VERSION}/magento-${MAGE_VERSION}.tar.gz
   tar -zxvf magento-${MAGE_VERSION}.tar.gz
   mv magento httpdocs
-  
+
   pushd httpdocs
   chmod -R o+w media var
   chmod o+w app/etc
@@ -100,14 +100,14 @@ fi
 if [ ! -f "./httpdocs/app/etc/local.xml" ]; then
   pushd httpdocs
   php -f install.php -- --license_agreement_accepted yes \
-  --locale en_US --timezone "America/Los_Angeles" --default_currency USD \
+  --locale en_US --timezone "Europe/Los_Angeles" --default_currency EUR \
   --db_host localhost --db_name magentodb --db_user magentouser --db_pass password \
   --url "http://212.113.64.58:8080/" --use_rewrites yes \
   --use_secure no --secure_base_url "http://212.113.64.58:8080/" --use_secure_admin no \
   --skip_url_validation yes \
   --admin_lastname Owner --admin_firstname Store --admin_email "admin@example.com" \
   --admin_username admin --admin_password password123123
-  /usr/bin/php -f shell/indexer.php reindexall
+  php -f shell/indexer.php reindexall
   popd
 fi
 
