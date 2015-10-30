@@ -1,0 +1,3 @@
+[submodule "httpdocs"]
+	path = httpdocs
+	url = git@github.com:crazyquark/riweb-magento.git
