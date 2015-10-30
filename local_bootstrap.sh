@@ -73,7 +73,8 @@ if [[ ! -f "./httpdocs/index.php" ]]; then
   mv magento httpdocs
 
   pushd httpdocs
-  chmod -R o+w media var
+  chmod -R o+w media
+  chmod -R o+w var
   chmod o+w app/etc
   # Clean up downloaded file and extracted dir
   rm -rf magento*
@@ -100,7 +101,7 @@ fi
 if [ ! -f "./httpdocs/app/etc/local.xml" ]; then
   pushd httpdocs
   php -f install.php -- --license_agreement_accepted yes \
-  --locale en_US --timezone "Europe/Los_Angeles" --default_currency EUR \
+  --locale en_US --timezone "Europe/Bucharest" --default_currency EUR \
   --db_host localhost --db_name magentodb --db_user magentouser --db_pass password \
   --url "http://212.113.64.58:8080/" --use_rewrites yes \
   --use_secure no --secure_base_url "http://212.113.64.58:8080/" --use_secure_admin no \
